@@ -1,0 +1,23 @@
+.vibor1 {
+    padding: 140px 170px;
+    font-size: 60px;
+    background-color: rgb(37, 206, 79);
+    color: white;
+    border: line;
+    border-width: 0px;
+    border-color: black;
+    border-radius: 40px;
+    cursor: pointer;
+    
+  }
+h {
+    padding: 60px 60px;
+    font-size: 60px;
+    background-color: rgb(38, 199, 92);
+    color: white;
+    border: line;
+    border-width: 0px;
+    border-color: black;
+    border-radius: 40px;
+    cursor: pointer;
+}

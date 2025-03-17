@@ -1,0 +1,53 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #d4edda; /* Светло-зелёный фон */
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid #155724; /* Тёмно-зелёные границы */  
+    width: 40px;
+}
+
+th {
+    background-color: #207534; /* Тёмно-зелёный заголовок */
+    color: white;
+    size: 40px;
+}
+tr {
+    height: 90px;
+}
+input {
+    width: 50%;
+}
+h1 {
+    padding: 18px;
+    font-size: 50px;
+    text-align: center;
+    background-color: rgb(38, 199, 92);
+    color: white;
+    border: 10px;
+    border-width: 10px;
+    border-color: black;
+    border-radius: 20px;
+    cursor: pointer;
+}
+button {
+    padding: 18px;
+    font-size: 50px;
+    text-align: center;
+    background-color: rgb(38, 199, 92);
+    color: white;
+    border: line;
+    border-width: 10px;
+    border-color: black;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.nazat {
+    padding: 8px;
+}
+p {
+    font-size: 25px;
+}

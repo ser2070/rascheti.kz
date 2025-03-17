@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Raschet/hetvert</title>
+        <link rel="stylesheet" href="HetvertandPolgod.css">
+    </head>
+    <body>
+        <h1>Заполните таблицу своими оценками</h1>
+        <table border ="1">
+            <tr>
+                <th>Оценки</th>
+                <td><input type="number" id="o1"></td>
+                <td><input type="number" id="o2"></td>
+                <td><input type="number" id="o3"></td>
+                <td><input type="number" id="o4"></td>
+                <td><input type="number" id="o5"></td>
+                <td><input type="number" id="o6"></td>
+                <td><input type="number" id="o7"></td>
+                <td><input type="number" id="o8"></td>
+                <td><input type="number" id="o9"></td>
+                <td><input type="number" id="o10"></td>
+                <td><input type="number" id="o11"></td>
+                <td><input type="number" id="o12"></td>
+                <td><input type="number" id="o13"></td>
+                <td><input type="number" id="o14"></td>
+                <td><input type="number" id="o15"></td>
+            </tr>
+            <tr>
+                <th>Соры Макс Бал</th>
+                <td><input type="number" id="rm1"></td>
+                <td><input type="number" id="rm2"></td>
+                <td><input type="number" id="rm3"></td>
+            </tr>
+            <tr>
+                <th>Соры Ваш Бал</th>
+                <td><input type="number" id="rb1"></td>
+                <td><input type="number" id="rb2"></td>
+                <td><input type="number" id="rb3"></td>
+            </tr>
+            <tr>
+                <th>Соч Макс Бал</th>
+                <td><input type="number" id="sm"></td>
+            </tr>
+            <tr>
+                <th>Соч Ваш Бал</th>
+                <td><input type="number" id="sb"></td>
+            </tr>
+        </table>
+
+        <p><strong>Средняя оценка:</strong> <span id="srsumo">0</span></p>
+        <p><strong>Процент от оценок:</strong> <span id="pro">0</span></p>
+        <p><strong>Процент от СОР:</strong> <span id="srsor">0</span></p>
+        <p><strong>Процент от СОЧ:</strong> <span id="sbsm">0</span></p>
+        <p><strong>Итоговый результат:</strong> <span id="total">0</span></p>
+
+
+        <button style="position: absolute; top: 82%; right: 60%;" onclick = "calculate()">Рассчитать</button>
+        <button style="position: absolute; top: 82%; right: 2%;" class="nazat" onclick ="window.location.href='Сайт для расчёта оценок.html'">К выбору</button>
+        
+        <script>
+            function calculate() {
+                let sumo = 0;
+                let count = 0;
+        
+                // Перебираем o1 - o15
+                for (let i = 1; i <= 15; i++) {
+                    let value = parseFloat(document.getElementById("o" + i).value) || 0; // Если пусто, ставим 0
+                    sumo += value; // Считаем сумму оценок
+                    if (value !== 0) count++; // Считаем, сколько чисел не равно 0
+                }
+        
+                // Проверяем, есть ли ненулевые оценки, чтобы избежать деления на 0
+                let srsumo = count > 0 ? sumo / count : 0;
+                let pro = srsumo * 2.5;
+                
+                let rm1 = parseFloat(document.getElementById("rm1").value) || 0;
+    let rm2 = parseFloat(document.getElementById("rm2").value) || 0;
+    let rm3 = parseFloat(document.getElementById("rm3").value) || 0;
+    
+    let rb1 = parseFloat(document.getElementById("rb1").value) || 0;
+    let rb2 = parseFloat(document.getElementById("rb2").value) || 0;
+    let rb3 = parseFloat(document.getElementById("rb3").value) || 0;
+
+    let sm = parseFloat(document.getElementById("sm").value) || 0;
+    let sb = parseFloat(document.getElementById("sb").value) || 0;
+
+
+    // Считаем (rb1/rm1 + rb2/rm2 + rb3/rm3) / kolr
+    let sumDiv = 0;
+    let kolr = 0;
+
+    if (rm1 !== 0) { sumDiv += rb1 / rm1; kolr++; }
+    if (rm2 !== 0) { sumDiv += rb2 / rm2; kolr++; }
+    if (rm3 !== 0) { sumDiv += rb3 / rm3; kolr++; }
+
+    let resul = kolr > 0 ? sumDiv / kolr : 0;
+    let srsor = resul * 25;
+
+    let sbsm = sm !== 0 ? (sb / sm) * 50 : 0;
+
+    let totalResult = pro + srsor + sbsm;
+
+                // Выводим результаты
+                document.getElementById("srsumo").innerText = srsumo.toFixed(2); // Округляем до 2 знаков
+                document.getElementById("pro").innerText = pro.toFixed(2);
+                document.getElementById("srsor").innerText = srsor.toFixed(2);
+                document.getElementById("sbsm").innerText = sbsm.toFixed(2);
+                document.getElementById("total").innerText = totalResult.toFixed(2);
+            }
+        </script>
+    </body>
+</html>
